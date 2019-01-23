@@ -17,7 +17,8 @@ public class BackendApplication {
 	@Bean
 	ApplicationRunner init(UserRepository userRepository, UsertypeRepository usertypeRepository, GenderRepository genderRepository,
 						   ProvinceRepository provinceRepository, TitleRepository titleRepository, CustomerRepository customerRepository,
-							TypeRepository typeRepository, DentistDataRepository dentistDataRepository, HospitalRepository hospitalRepository) {
+							TypeRepository typeRepository, DentistDataRepository dentistDataRepository, HospitalRepository hospitalRepository,
+						   ReserveRepository reserveRepository,RoomRepository roomRepository,QueueRepository queueRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
@@ -150,6 +151,41 @@ public class BackendApplication {
 
 			dentistDataRepository.save(den);
 			dentistDataRepository.findAll().forEach(System.out::println);
+
+			//toom
+
+			Stream.of("101", "102", "103", "104").forEach(room -> {
+				Room a = new Room();
+				a.setRoomNumber(room);
+				roomRepository.save(a);
+			});
+
+			Stream.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10").forEach(queue -> {
+				Queue q = new Queue();
+				q.setQueueNumber(queue);
+				queueRepository.save(q);
+			});
+
+			Stream.of("Johnny", "Johnwick", "Porn", "Micky").forEach(customer -> {
+				Customer m = new Customer();
+				m.setFirstname(customer);
+				customerRepository.save(m);
+			});
+
+			Reserve r = new Reserve();
+
+			Customer customer = customerRepository.findByfirstname("Porn");
+			r.setCustomer(customer);
+
+
+			Room room = roomRepository.findByroomNumber("101");
+			r.setRoom(room);
+
+
+			Queue queue = queueRepository.findByqueueNumber("4");
+			r.setQueue(queue);
+
+			reserveRepository.save(r);
 		};
 	}
 }
