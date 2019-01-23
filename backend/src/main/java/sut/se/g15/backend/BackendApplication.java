@@ -16,7 +16,8 @@ public class BackendApplication {
 	}
 	@Bean
 	ApplicationRunner init(UserRepository userRepository, UsertypeRepository usertypeRepository, GenderRepository genderRepository,
-						   ProvinceRepository provinceRepository, TitleRepository titleRepository) {
+						   ProvinceRepository provinceRepository, TitleRepository titleRepository, CustomerRepository customerRepository,
+							TypeRepository typeRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
@@ -29,7 +30,12 @@ public class BackendApplication {
 				p.setName(provinces);
 				provinceRepository.save(p);
 			});
-
+			Stream.of("ถอนฟัน","อุดฟัน","ขูดหินปูน","จัดฟัน").forEach(nametype -> {
+				Type t = new Type();
+				t.setName(nametype);
+				typeRepository.save(t);
+			});
+			//ploy
 			Usertype usertype = new Usertype();
 			usertype.setType("admin");
 			usertypeRepository.save(usertype);
@@ -84,7 +90,25 @@ public class BackendApplication {
 
 			userRepository.save(em);
 			userRepository.findAll().forEach(System.out::println);
+			//ta
+			Customer c = new Customer();
+			c.setFirstname("สมชาย");
+			c.setLastname("สามารถ");
+			c.setIdcard("1301500258496");
 
+			Gender gendercus = genderRepository.findBygender("ชาย");
+			Gender gender2cus = genderRepository.findBygender("หญิง");
+			c.setGender(gendercus);
+			c.setGender(gender2cus);
+
+			Province provincecus = provinceRepository.findByname("ชลบุรี");
+			c.setProvince(provincecus);
+
+			Type type = typeRepository.findBynameType("อุดฟัน");
+			c.setType(type);
+
+			customerRepository.save(c);
+			customerRepository.findAll().forEach(System.out::println);
 		};
 	}
 }
