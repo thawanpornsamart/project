@@ -17,7 +17,7 @@ public class BackendApplication {
 	@Bean
 	ApplicationRunner init(UserRepository userRepository, UsertypeRepository usertypeRepository, GenderRepository genderRepository,
 						   ProvinceRepository provinceRepository, TitleRepository titleRepository, CustomerRepository customerRepository,
-							TypeRepository typeRepository) {
+							TypeRepository typeRepository, DentistDataRepository dentistDataRepository, HospitalRepository hospitalRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
@@ -109,6 +109,47 @@ public class BackendApplication {
 
 			customerRepository.save(c);
 			customerRepository.findAll().forEach(System.out::println);
+			//new
+
+			Gender gnew = new Gender();
+			g.setGender("ชาย");
+			Gender gnew2 = new Gender();
+			g2.setGender("หญิง");
+			genderRepository.save(gnew);
+			genderRepository.save(gnew2);
+
+			Hospital hos = new Hospital();
+			hos.setName("รัฐบาล");
+			Hospital hos1 = new Hospital();
+			hos1.setName("เอกชน");
+
+			hospitalRepository.save(hos);
+			hospitalRepository.save(hos1);
+
+
+			DentistData den = new DentistData();
+			den.setFirstname("ทวี");
+			den.setLastname("ฐินใหม่");
+			den.setNumber("122311313131");
+
+			Gender genderden = genderRepository.findBygender("ชาย");
+			Gender genderden2 = genderRepository.findBygender("หญิง");
+			den.setGender(genderden);
+			den.setGender(genderden2);
+
+			Type typeden = typeRepository.findBynameType("อุดฟัน");
+			den.setType(typeden);
+
+
+			Hospital hospital = hospitalRepository.findByhospital("รัฐบาล");
+			Hospital hospital1 = hospitalRepository.findByhospital("เอกชน");
+
+			den.setHospital(hospital);
+			den.setHospital(hospital1);
+
+
+			dentistDataRepository.save(den);
+			dentistDataRepository.findAll().forEach(System.out::println);
 		};
 	}
 }
