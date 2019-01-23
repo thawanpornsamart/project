@@ -23,7 +23,7 @@ public class Payment {
     private @NonNull Date datePay;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Customer.class)
-    @JoinColumn(name = "C_ID" ,referencedColumnName="CUSTOMER_ID",insertable = true)
+    @JoinColumn(name = "C_ID" ,insertable = true)
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Type.class)
@@ -31,7 +31,7 @@ public class Payment {
     private Type nameType;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = DentistData.class)
-    @JoinColumn(name = "Den_ID",referencedColumnName="DENTISDATA_ID",insertable = true)
+    @JoinColumn(name = "Den_ID",insertable = true)
     private DentistData denname;
 
     public int getPayMent() {
