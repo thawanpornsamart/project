@@ -7,6 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { FinishComponent } from './finish/finish.component';
 import { MenuComponent } from './menu/menu.component';
 import { TabComponent } from './tab/tab.component';
+import { ReserveQueueComponent } from './reserveQueue/reserveQueue.component';
+import { QueueTableComponent } from './queueTable/queueTable.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
@@ -15,6 +17,12 @@ import { FileworkComponent } from './filework/filework.component';
 
 import { LastpageComponent } from './lastpage/lastpage.component';
 import { RegistercusComponent } from './registercus/registercus.component';
+
+import {MatCheckboxModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
 { path: '', component:LoginComponent },
@@ -26,10 +34,27 @@ const routes: Routes = [
 { path: 'registercus',component: RegistercusComponent },
 { path: 'lastpage', component:LastpageComponent },
 { path: 'filework',component: FileworkComponent },
+{ path: 'reserveQueue' ,component:ReserveQueueComponent },
+{ path: 'queueTable' ,component:QueueTableComponent },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes),
+             BrowserAnimationsModule,
+             NoopAnimationsModule,
+             MatCheckboxModule,
+             MatMenuModule,
+             MatSelectModule,
+             MatFormFieldModule,
+             MatTableModule
+  ],
+  exports: [RouterModule,
+            MatCheckboxModule,
+            MatMenuModule,
+            MatSelectModule,
+            MatFormFieldModule,
+            MatTableModule
+
+  ],
 
 })
 

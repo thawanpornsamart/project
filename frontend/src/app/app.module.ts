@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule,MatTableModule, MatDatepickerModule, MatNativeDateModule, MatRadioModule } from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -20,6 +20,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {Controller} from './controller/controller';
 import { MenuComponent } from './menu/menu.component';
 import { TabComponent } from './tab/tab.component';
+import { ReserveQueueComponent } from './reserveQueue/reserveQueue.component';
+import { QueueTableComponent } from './queueTable/queueTable.component';
+
 
 import { RegistercusComponent } from './registercus/registercus.component';
 import { LastpageComponent } from './lastpage/lastpage.component';
@@ -28,6 +31,9 @@ import { FileworkComponent } from './filework/filework.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
+
+import {MatMenuModule} from '@angular/material/menu';
+
 const appRoutes: Routes = [
 { path: 'login', component:LoginComponent },
 { path: 'register',component: RegisterComponent },
@@ -37,6 +43,8 @@ const appRoutes: Routes = [
 { path: 'registercus',component: RegistercusComponent },
 { path: 'lastpage', component:LastpageComponent },
 { path: 'filework',component:FileworkComponent },
+{ path: 'reserveQueue' ,component:ReserveQueueComponent },
+{ path: 'queueTable' ,component:QueueTableComponent },
 ];
 
 @NgModule({
@@ -51,6 +59,9 @@ const appRoutes: Routes = [
     RegistercusComponent,
     LastpageComponent,
     FileworkComponent,
+    QueueTableComponent,
+    ReserveQueueComponent,
+    
 
   ],
   imports: [
@@ -75,6 +86,8 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatChipsModule,
     MatIconModule,
+    MatMenuModule,
+    MatTableModule,
   ],
   providers: [Controller],
   bootstrap: [AppComponent]
