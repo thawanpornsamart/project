@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import sut.se.g15.backend.Entity.*;
 import sut.se.g15.backend.Repository.*;
 
+import java.util.Date;
 import java.util.stream.Stream;
 
 @SpringBootApplication
@@ -16,7 +17,7 @@ public class BackendApplication {
 	}
 	@Bean
 	ApplicationRunner init(UserRepository userRepository, UsertypeRepository usertypeRepository, GenderRepository genderRepository,
-						   ProvinceRepository provinceRepository, TitleRepository titleRepository, CustomerRepository customerRepository,
+						   ProvinceRepository provinceRepository, AppointmentRepository appointmentRepository,TitleRepository titleRepository, CustomerRepository customerRepository,
 							TypeRepository typeRepository, DentistDataRepository dentistDataRepository, HospitalRepository hospitalRepository,
 						   ReserveRepository reserveRepository,RoomRepository roomRepository,QueueRepository queueRepository) {
 		return args -> {
@@ -186,6 +187,31 @@ public class BackendApplication {
 			r.setQueue(queue);
 
 			reserveRepository.save(r);
+
+			//mild
+			Customer cm = new Customer();
+			cm.setFirstname("ธวรรณพร");
+			cm.setLastname("สามารถ");
+			customerRepository.save(cm);
+
+			Customer cm1 = new Customer();
+			cm1.setFirstname("สหราช");
+			cm1.setLastname("ดาศรี");
+			customerRepository.save(cm1);
+
+			DentistData d = new DentistData();
+			d.setFirstname("ปัทมาภรณ์");
+			d.setLastname("ทองขวัญ");
+			d.setNumber("2-9453-3");
+			dentistDataRepository.save(d);
+
+			Appointment ap = new Appointment();
+			ap.setDate(new Date());
+			ap.setDentistData(d);
+			ap.setCustomer(c);
+			Type tm = typeRepository.findBynameType("จัดฟัน");
+			ap.setType(tm);
+			appointmentRepository.save(ap);
 		};
 	}
 }
