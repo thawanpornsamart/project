@@ -11,6 +11,8 @@ import { TabComponent } from './tab/tab.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
+import { FileworkComponent } from './filework/filework.component';
+
 import { LastpageComponent } from './lastpage/lastpage.component';
 import { RegistercusComponent } from './registercus/registercus.component';
 
@@ -23,6 +25,7 @@ const routes: Routes = [
 { path: 'tab',component: TabComponent },
 { path: 'registercus',component: RegistercusComponent },
 { path: 'lastpage', component:LastpageComponent },
+{ path: 'filework',component: FileworkComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
