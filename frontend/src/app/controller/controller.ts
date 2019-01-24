@@ -22,5 +22,9 @@ constructor(
       getUser(): Observable<any>{
       return this.httpClient.get(this.API+'/User');
 }
+      //ta
+      gettype(): Observable<any> {
+      return this.httpClient.get(this.API + '/Type');
+      }
 
 }
