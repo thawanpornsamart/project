@@ -34,4 +34,17 @@ constructor(
       getdentistData(): Observable<any> {
       return this.httpClient.get(this.API + '/dentistData');
 }
+
+      getcustomername(): Observable<any> {
+      return this.httpClient.get(this.API + '/Customer');
+      }
+      getdentisname(): Observable<any> {
+      return this.httpClient.get(this.API + '/Dentisdata');
+      }
+      getnametype(): Observable<any> {
+      return this.httpClient.get(this.API + '/Type');
+      }
+     getAllRecipt(): Observable<any> {
+      return this.httpClient.get(this.API + '/Payment');
+      }
 }

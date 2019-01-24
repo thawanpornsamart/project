@@ -20,11 +20,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {Controller} from './controller/controller';
 import { MenuComponent } from './menu/menu.component';
 import { TabComponent } from './tab/tab.component';
+import {MatTableModule} from '@angular/material/table';
 
 import { RegistercusComponent } from './registercus/registercus.component';
 import { LastpageComponent } from './lastpage/lastpage.component';
 
 import { FileworkComponent } from './filework/filework.component';
+
+import { PaymentComponent } from './payment/payment.component';
+import { ReciptComponent } from './recipt/recipt.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
@@ -37,6 +41,8 @@ const appRoutes: Routes = [
 { path: 'registercus',component: RegistercusComponent },
 { path: 'lastpage', component:LastpageComponent },
 { path: 'filework',component:FileworkComponent },
+{path : 'Payment', component:PaymentComponent},
+{path : 'Recipt', component:ReciptComponent},
 ];
 
 @NgModule({
@@ -51,6 +57,9 @@ const appRoutes: Routes = [
     RegistercusComponent,
     LastpageComponent,
     FileworkComponent,
+    PaymentComponent,
+    ReciptComponent
+
 
   ],
   imports: [
@@ -75,6 +84,7 @@ const appRoutes: Routes = [
     MatTabsModule,
     MatChipsModule,
     MatIconModule,
+    MatTableModule,
   ],
   providers: [Controller],
   bootstrap: [AppComponent]

@@ -16,6 +16,9 @@ import { FileworkComponent } from './filework/filework.component';
 import { LastpageComponent } from './lastpage/lastpage.component';
 import { RegistercusComponent } from './registercus/registercus.component';
 
+import { PaymentComponent } from './payment/payment.component';
+import { ReciptComponent } from './recipt/recipt.component';
+
 const routes: Routes = [
 { path: '', component:LoginComponent },
 { path: 'login', component:LoginComponent },
@@ -26,6 +29,9 @@ const routes: Routes = [
 { path: 'registercus',component: RegistercusComponent },
 { path: 'lastpage', component:LastpageComponent },
 { path: 'filework',component: FileworkComponent },
+{path : 'Payment', component:PaymentComponent},
+{path : 'Recipt', component:ReciptComponent},
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
