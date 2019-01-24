@@ -16,10 +16,13 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatIconModule} from '@angular/material/icon';
 import {Controller} from './controller/controller';
 import { MenuComponent } from './menu/menu.component';
 import { TabComponent } from './tab/tab.component';
+
+import { RegistercusComponent } from './registercus/registercus.component';
+import { LastpageComponent } from './lastpage/lastpage.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
@@ -29,6 +32,8 @@ const appRoutes: Routes = [
 { path: 'finish', component:FinishComponent },
 { path: 'menu',component: MenuComponent },
 { path: 'tab',component: TabComponent },
+{ path: 'registercus',component: RegistercusComponent },
+{ path: 'lastpage', component:LastpageComponent },
 ];
 
 @NgModule({
@@ -40,6 +45,8 @@ const appRoutes: Routes = [
     MenuComponent,
     MenuComponent,
     TabComponent,
+    RegistercusComponent,
+    LastpageComponent,
 
   ],
   imports: [
@@ -63,6 +70,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatTabsModule,
     MatChipsModule,
+    MatIconModule,
   ],
   providers: [Controller],
   bootstrap: [AppComponent]
