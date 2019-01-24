@@ -23,6 +23,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
+import { PaymentComponent } from './payment/payment.component';
+import { ReciptComponent } from './recipt/recipt.component';
 
 const routes: Routes = [
 { path: '', component:LoginComponent },
@@ -36,6 +38,9 @@ const routes: Routes = [
 { path: 'filework',component: FileworkComponent },
 { path: 'reserveQueue' ,component:ReserveQueueComponent },
 { path: 'queueTable' ,component:QueueTableComponent },
+{path : 'Payment', component:PaymentComponent},
+{path : 'Recipt', component:ReciptComponent},
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes),

@@ -29,6 +29,9 @@ import { LastpageComponent } from './lastpage/lastpage.component';
 
 import { FileworkComponent } from './filework/filework.component';
 
+import { PaymentComponent } from './payment/payment.component';
+import { ReciptComponent } from './recipt/recipt.component';
+
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
 
@@ -45,6 +48,8 @@ const appRoutes: Routes = [
 { path: 'filework',component:FileworkComponent },
 { path: 'reserveQueue' ,component:ReserveQueueComponent },
 { path: 'queueTable' ,component:QueueTableComponent },
+{path : 'Payment', component:PaymentComponent},
+{path : 'Recipt', component:ReciptComponent},
 ];
 
 @NgModule({
@@ -62,6 +67,9 @@ const appRoutes: Routes = [
     QueueTableComponent,
     ReserveQueueComponent,
     
+    PaymentComponent,
+    ReciptComponent
+
 
   ],
   imports: [
