@@ -27,4 +27,11 @@ constructor(
       return this.httpClient.get(this.API + '/Type');
       }
 
+      //new
+      gethospital(): Observable<any> {
+      return this.httpClient.get(this.API + '/Hospital');
+      }
+      getdentistData(): Observable<any> {
+      return this.httpClient.get(this.API + '/dentistData');
+}
 }

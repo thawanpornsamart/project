@@ -24,6 +24,8 @@ import { TabComponent } from './tab/tab.component';
 import { RegistercusComponent } from './registercus/registercus.component';
 import { LastpageComponent } from './lastpage/lastpage.component';
 
+import { FileworkComponent } from './filework/filework.component';
+
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatChipsModule} from '@angular/material/chips';
 const appRoutes: Routes = [
@@ -34,6 +36,7 @@ const appRoutes: Routes = [
 { path: 'tab',component: TabComponent },
 { path: 'registercus',component: RegistercusComponent },
 { path: 'lastpage', component:LastpageComponent },
+{ path: 'filework',component:FileworkComponent },
 ];
 
 @NgModule({
@@ -47,6 +50,7 @@ const appRoutes: Routes = [
     TabComponent,
     RegistercusComponent,
     LastpageComponent,
+    FileworkComponent,
 
   ],
   imports: [
